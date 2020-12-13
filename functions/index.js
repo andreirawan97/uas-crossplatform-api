@@ -59,7 +59,7 @@ exports.signup = functions.https.onRequest(async (req, res) => {
     res.send({
       success: false,
       message: "Account already exist!",
-      token: "",
+      data: {},
     });
   } else {
     await firestore
