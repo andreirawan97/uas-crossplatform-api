@@ -24,9 +24,9 @@ const EMPTY_FRIENDS_DATA = {
 };
 
 exports.login = functions.https.onRequest(async (req, res) => {
-  const { email, password } = JSON.parse(req.body);
-
-  console.log(email);
+  const reqBody =
+    typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+  const { email, password } = reqBody;
 
   const secretSnapshot = await firestore.collection("secrets").doc(email).get();
   const secretData = secretSnapshot.data();
@@ -51,7 +51,9 @@ exports.login = functions.https.onRequest(async (req, res) => {
 });
 
 exports.signup = functions.https.onRequest(async (req, res) => {
-  const { email, password, firstName, lastName } = JSON.parse(req.body);
+  const reqBody =
+    typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+  const { email, password, firstName, lastName } = reqBody;
 
   const userSnapshot = await firestore.collection("users").doc(email).get();
   const userData = userSnapshot.data();
@@ -93,7 +95,9 @@ exports.signup = functions.https.onRequest(async (req, res) => {
 });
 
 exports.addNewLocation = functions.https.onRequest(async (req, res) => {
-  const { email, name, lat, long, date } = JSON.parse(req.body);
+  const reqBody =
+    typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+  const { email, name, lat, long, date } = reqBody;
 
   const locationsSnapshot = await firestore
     .collection("locations")
@@ -118,7 +122,9 @@ exports.addNewLocation = functions.https.onRequest(async (req, res) => {
 });
 
 exports.showAllLocation = functions.https.onRequest(async (req, res) => {
-  const { email } = JSON.parse(req.body);
+  const reqBody =
+    typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+  const { email } = reqBody;
 
   const locationsSnapshot = await firestore
     .collection("locations")
@@ -135,7 +141,9 @@ exports.showAllLocation = functions.https.onRequest(async (req, res) => {
 });
 
 exports.addNewFriend = functions.https.onRequest(async (req, res) => {
-  const { email, friendEmail } = JSON.parse(req.body);
+  const reqBody =
+    typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+  const { email, friendEmail } = reqBody;
 
   const userSnapshot = await firestore.collection("users").doc(email).get();
   const userData = userSnapshot.data();
@@ -187,7 +195,9 @@ exports.addNewFriend = functions.https.onRequest(async (req, res) => {
 });
 
 exports.showAllFriend = functions.https.onRequest(async (req, res) => {
-  const { email } = JSON.parse(req.body);
+  const reqBody =
+    typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+  const { email } = reqBody;
 
   const friendSnapshot = await firestore.collection("friends").doc(email).get();
   const friendData = friendSnapshot.data();
@@ -201,7 +211,9 @@ exports.showAllFriend = functions.https.onRequest(async (req, res) => {
 });
 
 exports.removeFriend = functions.https.onRequest(async (req, res) => {
-  const { email, friendEmail } = JSON.parse(req.body);
+  const reqBody =
+    typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+  const { email, friendEmail } = reqBody;
 
   const friendSnapshot = await firestore.collection("friends").doc(email).get();
   const friendData = friendSnapshot.data();
