@@ -136,7 +136,7 @@ exports.showAllLocation = functions.https.onRequest(async (req, res) => {
   res.send({
     success: true,
     message: "OK",
-    data: locationsData,
+    data: locationsData ? locationsData : [],
   });
 });
 
@@ -206,7 +206,7 @@ exports.showAllFriend = functions.https.onRequest(async (req, res) => {
   res.send({
     success: true,
     message: "OK",
-    data: friendData,
+    data: friendData ? friendData : [],
   });
 });
 
