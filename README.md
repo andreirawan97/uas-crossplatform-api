@@ -5,7 +5,7 @@ NOTE: Kalo mau coba, pake firebase emulator.
 
 ## Schema
 
-1. friends
+### friends
 
 Doc: email
 
@@ -21,7 +21,7 @@ Friend = {
 Collection = Array<Friend>
 ```
 
-2. locations
+### locations
 
 Doc: email
 
@@ -37,7 +37,7 @@ Location = {
 Collection = Array<Location>
 ```
 
-3. secrets
+### secrets
 
 Doc: email
 
@@ -48,7 +48,7 @@ Collection = {
 }
 ```
 
-4. users
+### users
 
 Doc: email
 
