@@ -84,7 +84,7 @@ Email atau password salah / user ga ada
 ```
 
 
-## Add New Friend
+### Add New Friend
 
 Endpoint: `addNewFriend`
 
@@ -132,7 +132,7 @@ Email temen salah
   }
 ```
 
-## Remove Friend
+### Remove Friend
 
 Endpoint: `removeFriend`
 
@@ -156,7 +156,7 @@ Berhasil
   }
 ```
 
-## Show All Friend
+### Show All Friend
 
 Endpoint: `showAllFriend`
 
@@ -187,7 +187,7 @@ Berhasil
   }
 ```
 
-## Add New Location
+### Add New Location
 
 Endpoint: `addNewLocation`
 
@@ -228,7 +228,7 @@ Berhasil
 }
 ```
 
-## Show All Location
+### Show All Location
 
 Endpoint: `showAllLocation`
 
