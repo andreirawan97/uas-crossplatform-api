@@ -6,7 +6,9 @@ NOTE: Kalo mau coba, pake firebase emulator.
 ## Schema
 
 1. friends
+
 Doc: email
+
 Collection: 
 ```typescript
 Friend = {
@@ -20,7 +22,9 @@ Collection = Array<Friend>
 ```
 
 2. locations
+
 Doc: email
+
 Collection: 
 ```typescript
 Location = {
@@ -34,7 +38,9 @@ Collection = Array<Location>
 ```
 
 3. secrets
+
 Doc: email
+
 Collection:
 ```typescript
 Collection = {
@@ -43,7 +49,9 @@ Collection = {
 ```
 
 4. users
+
 Doc: email
+
 Collection:
 ```typescript
 Collection = {
