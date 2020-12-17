@@ -1,7 +1,58 @@
 # UAS Cross Platform API
 Ini API buat UAS Cross Platform.
 
-NOTE: Kalo mau coba, pake firebase emulator
+NOTE: Kalo mau coba, pake firebase emulator. 
+
+## Schema
+
+1. friends
+Doc: email
+Collection: 
+```typescript
+Friend = {
+    lastName: string;
+    firstName: string;
+    email: string;
+    imageBase64: string;
+}
+
+Collection = Array<Friend>
+```
+
+2. locations
+Doc: email
+Collection: 
+```typescript
+Location = {
+    date: number; // From Date.now() 
+    long: number;
+    lat: number;
+    name: string;
+}
+
+Collection = Array<Location>
+```
+
+3. secrets
+Doc: email
+Collection:
+```typescript
+Collection = {
+    secret: string; // base64
+}
+```
+
+4. users
+Doc: email
+Collection:
+```typescript
+Collection = {
+    lastName: string;
+    firstName: string;
+    email: string;
+    imageBase64: string;
+}
+```
 
 ## Documentation
 
