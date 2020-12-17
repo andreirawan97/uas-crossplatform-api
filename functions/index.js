@@ -32,12 +32,17 @@ exports.login = functions.https.onRequest(async (req, res) => {
   const secretData = secretSnapshot.data();
 
   if (secretData && password === secretData.secret) {
+    const userSnapshot = await firestore.collection("users").doc(email).get();
+    const userData = userSnapshot.data();
+
     res.set({ "Access-Control-Allow-Origin": "*" });
     res.send({
       success: true,
       message: "OK",
       data: {
         email,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
       },
     });
   } else {
@@ -89,6 +94,8 @@ exports.signup = functions.https.onRequest(async (req, res) => {
       message: "OK",
       data: {
         email,
+        firstName,
+        lastName,
       },
     });
   }
@@ -147,6 +154,7 @@ exports.addNewFriend = functions.https.onRequest(async (req, res) => {
 
   const userSnapshot = await firestore.collection("users").doc(email).get();
   const userData = userSnapshot.data();
+  console.log(userData);
 
   const newFriendSnapshot = await firestore
     .collection("users")
@@ -173,9 +181,20 @@ exports.addNewFriend = functions.https.onRequest(async (req, res) => {
         data: {},
       });
     } else {
+      const friendFriendSnapshot = await firestore
+        .collection("friends")
+        .doc(friendEmail)
+        .get();
+      let friendFriendData = friendFriendSnapshot.data();
+
       friendData.friends.push({ ...newFriendData });
+      friendFriendData.friends.push({ ...userData });
 
       await firestore.collection("friends").doc(email).set(friendData);
+      await firestore
+        .collection("friends")
+        .doc(friendEmail)
+        .set(friendFriendData);
 
       res.set({ "Access-Control-Allow-Origin": "*" });
       res.send({
