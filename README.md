@@ -156,5 +156,105 @@ Berhasil
   }
 ```
 
-## Sisanya nantian. Mager.
+## Show All Friend
 
+Endpoint: `showAllFriend`
+
+**Request Body**
+```typescript
+  {
+    email: string
+  }
+```
+
+**Response**
+
+Berhasil
+```typescript
+  {
+    "success": true,
+    "message": "OK",
+    "data": {
+      "friends": [
+        {
+          "lastName": "Irawan",
+          "firstName": "Andre",
+          "imageBase64": "",
+          "email": "andre@gmail.com"
+        }
+      ] // Array of friend
+    }
+  }
+```
+
+## Add New Location
+
+Endpoint: `addNewLocation`
+
+**Request Body**
+```typescript
+{
+	"email": "andre@gmail.com",
+	"name": "Kos Andre",
+	"lat": -6.250247,
+	"long": 106.616089,
+	"date": 1607843467
+}
+```
+
+**Response**
+
+Berhasil
+```typescript
+{
+  "success": true,
+  "message": "OK",
+  "data": {
+    "locations": [
+      {
+        "name": "Kos Andre",
+        "lat": -6.250247,
+        "long": 106.616089,
+        "date": 1607843467
+      },
+      { // Lokasi terakhir
+        "name": "Kos Andre",
+        "lat": -6.250247,
+        "long": 106.616089,
+        "date": 1607843467
+      }
+    ]
+  }
+}
+```
+
+## Show All Location
+
+Endpoint: `showAllLocation`
+
+**Request Body**
+```typescript
+  {
+    email: string
+  }
+```
+
+**Response**
+
+Berhasil
+```typescript
+{
+  "success": true,
+  "message": "OK",
+  "data": {
+    "locations": [
+      {
+        "date": 1607843467,
+        "long": 106.616089,
+        "name": "Kos Andre",
+        "lat": -6.250247
+      }
+    ]
+  }
+}
+```
